@@ -64,24 +64,14 @@ export async function fetchSpots(
   lng: number,
   radiusM = 500,
 ): Promise<Spot[]> {
-  const query = `
-    [out:json][timeout:25];
-    (
-      node["amenity"~"cafe|restaurant|fast_food|bar"](around:${radiusM},${lat},${lng});
-    );
-    out body;
-  `;
-
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 30_000);
 
   try {
-    const res = await fetch('https://overpass-api.de/api/interpreter', {
-      method: 'POST',
-      body: 'data=' + encodeURIComponent(query),
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      signal: controller.signal,
-    });
+    const res = await fetch(
+      `/api/spots?lat=${lat}&lng=${lng}&radius=${radiusM}`,
+      { signal: controller.signal },
+    );
 
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
