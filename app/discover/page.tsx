@@ -20,7 +20,7 @@ const RADIUS_OPTIONS: { value: Radius; label: string }[] = [
   { value: 2000, label: '2km' },
 ]
 const RADIUS_NEXT: Partial<Record<Radius, Radius>> = { 500: 1000, 1000: 2000 }
-const DEFAULT_CENTER: [number, number] = [35.5867, 139.3739]
+const DEFAULT_CENTER: [number, number] = [35.3606, 138.7274]
 
 function formatDist(m: number): string {
   return m >= 1000 ? `${(m / 1000).toFixed(1)}km` : `${m}m`
