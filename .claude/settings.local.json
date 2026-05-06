@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:3000/discover)",
+      "Bash(curl -s http://localhost:3000/about)",
+      "Bash(curl -s \"http://localhost:3000/_next/static/chunks/app_discover_page_tsx_0j2~ykx._.js\")",
+      "Bash(curl -s \"http://localhost:3000/_next/static/chunks/_0zr8.vr._.js\")",
+      "Bash(npx tsc *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/privacy)"
+    ]
+  }
+}
